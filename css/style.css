@@ -1,38 +1,84 @@
+/*
+============================================================
+  RESETEO BÁSICO
+  Elimina márgenes y paddings que los navegadores agregan
+  por defecto. box-sizing: border-box hace que el padding
+  y borde se incluyan dentro del ancho/alto del elemento
+  (más fácil para maquetar).
+============================================================
+*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/*
+  Al body le sumamos padding-top de 56px porque el navbar
+  tiene position: fixed-top y si no, el contenido quedaría
+  tapado por la barra. La fuente es la misma que usa Windows.
+*/
 body {
   padding-top: 56px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/*
+  SECCIÓN HERO
+  - background: gradiente lineal de rojo a naranja (colores
+    cálidos que dan hambre).
+  - min-height: 92vh → ocupa el 92% de la altura de la
+    pantalla (vh = viewport height). Así se ve imponente.
+*/
 .hero {
   background: linear-gradient(135deg, #d32f2f 0%, #ff6f00 100%);
   min-height: 92vh;
 }
 
+/*
+  Sombra en el título del hero para que resalte sobre
+  el fondo gradiente y sea más legible.
+*/
 .hero h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/*
+  TARJETAS (Cards)
+  - transition: al pasar el mouse, los cambios de
+    transform y box-shadow duran 0.3 segundos (animación suave).
+  - border: none → quitamos el borde gris por defecto de Bootstrap.
+*/
 .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: none;
 }
 
+/*
+  Cuando el usuario pasa el mouse sobre una card:
+  - translateY(-8px) → la card "flota" hacia arriba 8px.
+  - box-shadow más grande → da sensación de profundidad.
+  Ambos efectos combinados simulan que la card se eleva.
+*/
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
 }
 
+/*
+  Las imágenes dentro de las cards tienen todas la misma
+  altura (200px) y object-fit: cover las recorta para
+  llenar el espacio sin deformarse.
+*/
 .card-img-top {
   height: 200px;
   object-fit: cover;
 }
 
+/*
+  En el footer, separamos un poco las letras
+  (letter-spacing) para que se vea más prolijo.
+*/
 footer p {
   letter-spacing: 0.5px;
 }
